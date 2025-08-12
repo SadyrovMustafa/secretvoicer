@@ -15,8 +15,11 @@ import { LoginForm } from '../components/LoginForm';
 import { RegisterForm } from '../components/RegisterForm';
 import { AudioEditor } from '../components/AudioEditor';
 import { AudioUploader } from '../components/AudioUploader';
+<<<<<<< HEAD
 import { ReferralPanel } from '../components/ReferralPanel';
 import { ReferralBanner } from '../components/ReferralBanner';
+=======
+>>>>>>> 151f6be0d36e857431ebc82fc0dff270e5a46853
 import { useTTS } from '../hooks/useTTS';
 import { useHistory } from '../hooks/useHistory';
 import { useAuth } from '../hooks/useAuth';
@@ -64,9 +67,12 @@ export default function Home() {
   const [editorAudioUrl, setEditorAudioUrl] = useState<string | null>(null);
   const [audioProjects, setAudioProjects] = useState<AudioProject[]>([]);
   
+<<<<<<< HEAD
   // Состояние для реферальной панели
   const [showReferralPanel, setShowReferralPanel] = useState(false);
   
+=======
+>>>>>>> 151f6be0d36e857431ebc82fc0dff270e5a46853
   const { status, error, audioUrl, speak, stop, pause, resume, isPaused, reset, karaokeIndex, karaokeLength, karaokeActive, karaokeApproximate, } = useTTS();
   const { history, addToHistory, removeFromHistory, clearHistory, exportHistory, filters, setFilters } = useHistory();
   const { user, isAuthenticated, isLoading, error: authError, login, register, logout, updateUserSettings } = useAuth();
@@ -271,6 +277,7 @@ export default function Home() {
                  </a>
                )}
                <button
+<<<<<<< HEAD
                  onClick={() => setShowReferralPanel(!showReferralPanel)}
                  className={`px-4 py-2 border rounded-lg transition-colors ${
                    showReferralPanel 
@@ -281,6 +288,8 @@ export default function Home() {
                  💰 Рефералы
                </button>
                <button
+=======
+>>>>>>> 151f6be0d36e857431ebc82fc0dff270e5a46853
                  onClick={handleSubscription}
                  className="px-4 py-2 border border-cyan-400 text-cyan-400 rounded-lg hover:bg-cyan-400 hover:text-black transition-colors"
                >
@@ -298,9 +307,12 @@ export default function Home() {
 
         {/* Main Content */}
         <main className="max-w-4xl mx-auto px-6 py-8">
+<<<<<<< HEAD
           {/* Реферальный баннер */}
           <ReferralBanner />
           
+=======
+>>>>>>> 151f6be0d36e857431ebc82fc0dff270e5a46853
           {/* Voice Selection and Settings */}
           <div className="mb-6 space-y-4">
             <div className="flex items-center space-x-4">
@@ -490,6 +502,7 @@ export default function Home() {
             />
           </div>
 
+<<<<<<< HEAD
           {/* Реферальная панель */}
           {showReferralPanel && user && (
             <div className="mt-6">
@@ -497,6 +510,8 @@ export default function Home() {
             </div>
           )}
 
+=======
+>>>>>>> 151f6be0d36e857431ebc82fc0dff270e5a46853
           {/* Аудио редактор */}
           {showAudioEditor && (
             <div className="mt-8">

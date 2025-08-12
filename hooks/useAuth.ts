@@ -92,6 +92,7 @@ export const useAuth = () => {
     localStorage.setItem(USERS_STORAGE_KEY, JSON.stringify(users));
   }, []);
 
+<<<<<<< HEAD
   // Временное создание админа для тестирования - удалить после первого входа!
   useEffect(() => {
     const users = getUsers();
@@ -133,6 +134,8 @@ export const useAuth = () => {
     return `${usernamePart}${timestamp}${random}`.toUpperCase();
   }, []);
 
+=======
+>>>>>>> 151f6be0d36e857431ebc82fc0dff270e5a46853
   const login = useCallback(async (credentials: LoginCredentials): Promise<boolean> => {
     setAuthState(prev => ({ ...prev, isLoading: true, error: null }));
 
@@ -184,7 +187,11 @@ export const useAuth = () => {
     }
   }, [getUsers, saveUsers, saveAuthState]);
 
+<<<<<<< HEAD
   const register = useCallback(async (credentials: RegisterCredentials & { referralCode?: string }): Promise<boolean> => {
+=======
+  const register = useCallback(async (credentials: RegisterCredentials): Promise<boolean> => {
+>>>>>>> 151f6be0d36e857431ebc82fc0dff270e5a46853
     setAuthState(prev => ({ ...prev, isLoading: true, error: null }));
 
     try {
@@ -223,6 +230,7 @@ export const useAuth = () => {
         return false;
       }
 
+<<<<<<< HEAD
       // Обрабатываем реферальный код
       let referredBy: string | undefined;
       if (credentials.referralCode) {
@@ -233,6 +241,8 @@ export const useAuth = () => {
         }
       }
 
+=======
+>>>>>>> 151f6be0d36e857431ebc82fc0dff270e5a46853
       // Создаем нового пользователя
       const newUser = {
         id: `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
@@ -246,6 +256,7 @@ export const useAuth = () => {
           defaultLanguage: 'ru-RU',
           useBark: false,
         },
+<<<<<<< HEAD
         // Реферальная система
         referralCode: generateReferralCode(`user_${Date.now()}`, credentials.username),
         referredBy,
@@ -256,11 +267,14 @@ export const useAuth = () => {
           pendingEarnings: 0,
         },
         referralHistory: [],
+=======
+>>>>>>> 151f6be0d36e857431ebc82fc0dff270e5a46853
       };
 
       users.push(newUser);
       saveUsers(users);
 
+<<<<<<< HEAD
       // Если пользователь зарегистрировался по реферальному коду, обновляем статистику реферера
       if (referredBy) {
         const referrer = users.find(u => u.id === referredBy);
@@ -277,6 +291,8 @@ export const useAuth = () => {
         }
       }
 
+=======
+>>>>>>> 151f6be0d36e857431ebc82fc0dff270e5a46853
       const { password, ...userWithoutPassword } = newUser;
       const token = `token_${newUser.id}_${Date.now()}`;
       
@@ -298,7 +314,11 @@ export const useAuth = () => {
       }));
       return false;
     }
+<<<<<<< HEAD
   }, [getUsers, saveUsers, saveAuthState, generateReferralCode]);
+=======
+  }, [getUsers, saveUsers, saveAuthState]);
+>>>>>>> 151f6be0d36e857431ebc82fc0dff270e5a46853
 
   const logout = useCallback(() => {
     clearAuthState();
@@ -348,6 +368,9 @@ export const useAuth = () => {
     register,
     logout,
     updateUserSettings,
+<<<<<<< HEAD
     generateReferralCode,
+=======
+>>>>>>> 151f6be0d36e857431ebc82fc0dff270e5a46853
   };
 }; 

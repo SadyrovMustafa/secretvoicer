@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { RegisterCredentials } from '../types/auth';
 
 interface RegisterFormProps {
   onRegister: (credentials: RegisterCredentials & { referralCode?: string }) => Promise<boolean>;
+=======
+import { useState } from 'react';
+import { RegisterCredentials } from '../types/auth';
+
+interface RegisterFormProps {
+  onRegister: (credentials: RegisterCredentials) => Promise<boolean>;
+>>>>>>> 151f6be0d36e857431ebc82fc0dff270e5a46853
   onSwitchToLogin: () => void;
   isLoading: boolean;
   error: string | null;
@@ -15,12 +23,17 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
   isLoading,
   error,
 }) => {
+<<<<<<< HEAD
   const router = useRouter();
   const [credentials, setCredentials] = useState<RegisterCredentials & { referralCode?: string }>({
+=======
+  const [credentials, setCredentials] = useState<RegisterCredentials>({
+>>>>>>> 151f6be0d36e857431ebc82fc0dff270e5a46853
     email: '',
     username: '',
     password: '',
     confirmPassword: '',
+<<<<<<< HEAD
     referralCode: '',
   });
 
@@ -35,6 +48,10 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
     }
   }, [router.query]);
 
+=======
+  });
+
+>>>>>>> 151f6be0d36e857431ebc82fc0dff270e5a46853
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
 
   const validateForm = () => {
@@ -56,6 +73,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
       errors.email = 'Введите корректный email';
     }
 
+<<<<<<< HEAD
     // Валидация реферального кода (опционально)
     if (credentials.referralCode && credentials.referralCode.trim()) {
       if (!/^[A-Z0-9]{8,15}$/.test(credentials.referralCode.trim().toUpperCase())) {
@@ -63,6 +81,8 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
       }
     }
 
+=======
+>>>>>>> 151f6be0d36e857431ebc82fc0dff270e5a46853
     setValidationErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -70,6 +90,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
+<<<<<<< HEAD
       // Очищаем пустой реферальный код
       const cleanCredentials = {
         ...credentials,
@@ -92,6 +113,18 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
     setCredentials(prev => ({
       ...prev,
       [field]: value,
+=======
+      await onRegister(credentials);
+    }
+  };
+
+  const handleChange = (field: keyof RegisterCredentials) => (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setCredentials(prev => ({
+      ...prev,
+      [field]: e.target.value,
+>>>>>>> 151f6be0d36e857431ebc82fc0dff270e5a46853
     }));
     
     // Очищаем ошибку валидации при изменении поля
@@ -203,6 +236,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
               )}
             </div>
 
+<<<<<<< HEAD
             <div>
               <label htmlFor="referralCode" className="block text-sm font-medium text-dark-text mb-2">
                 Реферальный код <span className="text-gray-400 text-xs">(необязательно)</span>
@@ -226,6 +260,8 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
               </p>
             </div>
 
+=======
+>>>>>>> 151f6be0d36e857431ebc82fc0dff270e5a46853
             <button
               type="submit"
               disabled={isLoading}

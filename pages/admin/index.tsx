@@ -4,7 +4,10 @@ import { useAuth } from '../../hooks/useAuth';
 import { useAdmin } from '../../hooks/useAdmin';
 import { AdminStatsComponent } from '../../components/AdminStats';
 import { AdminUsers } from '../../components/AdminUsers';
+<<<<<<< HEAD
 import { AdminReferrals } from '../../components/AdminReferrals';
+=======
+>>>>>>> 151f6be0d36e857431ebc82fc0dff270e5a46853
 import { User } from '../../types/auth';
 
 const AdminLoginForm = ({ onLogin }: { onLogin: (email: string, password: string) => void }) => {
@@ -77,7 +80,11 @@ const AdminLoginForm = ({ onLogin }: { onLogin: (email: string, password: string
 };
 
 const AdminPanel = ({ user }: { user: User }) => {
+<<<<<<< HEAD
   const [activeTab, setActiveTab] = useState<'stats' | 'users' | 'referrals'>('stats');
+=======
+  const [activeTab, setActiveTab] = useState<'stats' | 'users'>('stats');
+>>>>>>> 151f6be0d36e857431ebc82fc0dff270e5a46853
   const { stats, users, filters, setFilters, toggleUserBlock, changeUserSubscription, deleteUser, isLoading } = useAdmin(user);
 
   return (
@@ -111,6 +118,7 @@ const AdminPanel = ({ user }: { user: User }) => {
             >
               Пользователи
             </button>
+<<<<<<< HEAD
             <button
               onClick={() => setActiveTab('referrals')}
               className={`py-2 px-1 border-b-2 font-medium text-sm ${
@@ -121,6 +129,8 @@ const AdminPanel = ({ user }: { user: User }) => {
             >
               Рефералы
             </button>
+=======
+>>>>>>> 151f6be0d36e857431ebc82fc0dff270e5a46853
           </nav>
         </div>
 
@@ -133,11 +143,18 @@ const AdminPanel = ({ user }: { user: User }) => {
             onFiltersChange={setFilters}
             onToggleBlock={toggleUserBlock}
             onChangeSubscription={changeUserSubscription}
+<<<<<<< HEAD
             onDelete={deleteUser}
             isLoading={isLoading}
           />
         )}
         {activeTab === 'referrals' && <AdminReferrals user={user} />}
+=======
+            onDeleteUser={deleteUser}
+            isLoading={isLoading}
+          />
+        )}
+>>>>>>> 151f6be0d36e857431ebc82fc0dff270e5a46853
       </div>
     </div>
   );

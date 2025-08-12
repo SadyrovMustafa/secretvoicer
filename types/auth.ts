@@ -15,6 +15,7 @@ export interface User {
     useBark?: boolean;
     useElevenLabs?: boolean;
   };
+<<<<<<< HEAD
   // Реферальная система
   referralCode?: string;
   referredBy?: string;
@@ -62,6 +63,8 @@ export interface TopReferrer {
   email: string;
   totalReferrals: number;
   totalEarnings: number;
+=======
+>>>>>>> 151f6be0d36e857431ebc82fc0dff270e5a46853
 }
 
 export interface AuthState {
